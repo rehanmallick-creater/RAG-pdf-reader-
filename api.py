@@ -11,7 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from langchain_community.document_loaders import PyPDFLoader
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings import FastEmbedEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_groq import ChatGroq
@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent
 load_dotenv(BASE_DIR / ".env")
 
 DB_DIR = str(BASE_DIR / "chroma_db")
-MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+MODEL_NAME = "BAAI/bge-small-en-v1.5"
 
 app = FastAPI(title="RAG Book Assistant API")
 
@@ -35,7 +35,7 @@ app.add_middleware(
 )
 
 # Models
-embeddings = HuggingFaceEmbeddings(
+embeddings = FastEmbedEmbeddings(
     model_name=MODEL_NAME
 )
 

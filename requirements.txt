@@ -7,11 +7,11 @@ python-dotenv
 langchain-core
 langchain-community
 langchain-groq
-langchain-huggingface
+
 langchain-text-splitters
 
 chromadb
-sentence-transformers
+fastembed
 pypdf
 
 groq
