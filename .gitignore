@@ -1,0 +1,33 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# ChromaDB local database
+chroma_db/
+chroma_db_*/
+
+# Temporary files
+tempCodeRunnerFile.py
+*.log
+*.tmp
+
+# IDE
+.vscode/
+.idea/
+
+# Testing and cache
+.pytest_cache/
+.mypy_cache/
+.huggingface/

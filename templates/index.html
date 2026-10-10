@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1020">
+    <title>Knowbase AI — Document Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="/">
+                <span class="brand-icon">K</span>
+                <span>knowbase<span class="brand-ai">.ai</span></span>
+            </a>
+
+            <button id="new-chat" class="new-chat">
+                <span>＋</span> New conversation
+            </button>
+
+            <div class="side-label">YOUR WORKSPACE</div>
+            <div class="document-card">
+                <div class="document-icon">PDF</div>
+                <div>
+                    <strong>Knowledge base</strong>
+                    <p id="sidebar-status">Ready to upload</p>
+                </div>
+                <span class="status-dot"></span>
+            </div>
+
+            <div class="sidebar-bottom">
+                <div class="avatar">AI</div>
+                <div>
+                    <strong>RAG Assistant</strong>
+                    <p>Powered by your documents</p>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-panel">
+            <header class="topbar">
+                <div>
+                    <div class="eyebrow">YOUR PERSONAL AI</div>
+                    <h1>Document Assistant</h1>
+                </div>
+                <div class="online-badge">
+                    <span class="status-dot"></span> API connected
+                </div>
+            </header>
+
+            <section class="workspace">
+                <div class="welcome" id="welcome">
+                    <div class="hero-icon">✳</div>
+                    <div class="eyebrow">YOUR KNOWLEDGE, UNLOCKED</div>
+                    <h2>Ask your documents<br>anything<span>.</span></h2>
+                    <p>Upload a PDF, ask a question, and get answers<br class="desktop-only">
+                       grounded in your document.</p>
+
+                    <label class="upload-card" for="pdf-file">
+                        <div class="upload-icon">↑</div>
+                        <div class="upload-copy">
+                            <strong id="upload-title">Upload your PDF</strong>
+                            <span id="upload-subtitle">Choose a document from your computer</span>
+                        </div>
+                        <span class="browse-label">Browse</span>
+                    </label>
+                    <input id="pdf-file" type="file" accept=".pdf,application/pdf" hidden>
+
+                    <div id="upload-status" class="upload-status" role="status">
+                        No document uploaded in this session.
+                    </div>
+
+                    <div class="suggestion-heading">TRY ASKING</div>
+                    <div class="suggestions">
+                        <button class="suggestion" data-question="Summarize this document.">
+                            <span>✦</span> Summarize this document
+                        </button>
+                        <button class="suggestion" data-question="What are the key concepts?">
+                            <span>⌘</span> Explain key concepts
+                        </button>
+                        <button class="suggestion" data-question="What are the most important points?">
+                            <span>↗</span> Find important points
+                        </button>
+                    </div>
+                </div>
+
+                <div id="chat-messages" class="chat-messages"
+                     aria-live="polite" hidden></div>
+            </section>
+
+            <footer class="composer-area">
+                <div class="composer" id="composer">
+                    <textarea id="question" rows="1"
+                        placeholder="Ask anything about your document..."
+                        aria-label="Your question"></textarea>
+                    <button id="send-btn" class="send-btn"
+                        aria-label="Send message" disabled>↑</button>
+                </div>
+                <div class="composer-hint">
+                    AI can make mistakes. Verify important information.
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
