@@ -106,15 +106,6 @@ def upload_pdf(file: UploadFile = File(...)):
         )
 
     temp_path = None
-    MAX_FILE_SIZE = 5 * 1024 * 1024  # 5 MB
-
-    content = file.file.read(MAX_FILE_SIZE + 1)
-
-    if len(content) > MAX_FILE_SIZE:
-        raise HTTPException(
-            status_code=413,
-            detail="PDF is too large. Maximum size is 5 MB.",
-        )
 
     try:
         content = file.file.read()
